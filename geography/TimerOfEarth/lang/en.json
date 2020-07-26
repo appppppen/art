@@ -1,0 +1,19 @@
+{
+    "title": "Early and Late of time ",
+    "switch": "Rotate",
+    "text": [
+        "North Pole",
+        "Antarctic",
+        "Side view"
+    ],
+    "time": [
+        "h",
+        "m"
+    ],
+    "location": [
+        "Beijing",
+        "Buenos Aires",
+        "Seattle",
+        "Cape Town"
+    ]
+}

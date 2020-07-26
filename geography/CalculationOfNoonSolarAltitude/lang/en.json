@@ -1,0 +1,14 @@
+{
+    "title": "calculate the noon sun altitude angle",
+    "btntext": [
+        "Point A",
+        "Point B Direct to the Sun"
+    ],
+    "label": [
+        "equatorial",
+        "horizon",
+        "Sun Rays",
+        "perpendicular",
+        "weft"
+    ]
+}

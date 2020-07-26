@@ -1,0 +1,59 @@
+#warp {
+				position: relative;
+				width: 99%;
+				height: 60%;
+			}
+			#war {
+            				position: relative;
+            				width: 90%;
+            				height: 60%;
+            			}
+            			#war a,
+                        			#war a:hover,
+                        			#war a:link,
+                        			#war a:visited {
+                        				width: 80px;
+                        				height: 50px;
+                        				display: inline-block;
+                        				text-align: center;
+                        				padding: 15px;
+                        				margin: 5px;
+                        				background: aliceblue;
+                        				font-size: 25px;
+                        				font-family: Microsoft YaHei;
+                        				text-decoration: none;
+                        				vertical-align: -webkit-baseline-middle;
+                        				color: #333;
+                        			}
+            .ipText{
+                width: 90%;
+                height: 50px;
+            }
+			#warp a,
+			#warp a:hover,
+			#warp a:link,
+			#warp a:visited {
+				width: 90%;
+				/*height: 50px;*/
+				display: inline-block;
+				text-align: center;
+				padding: 15px;
+				margin: 5px;
+				background: aliceblue;
+				font-size: 25px;
+				font-family: Microsoft YaHei;
+				text-decoration: none;
+				vertical-align: -webkit-baseline-middle;
+				color: #333;
+			}
+
+			#warp p {
+				font-size: 36px;
+				color: #66ccff;
+			}
+			.preview_box img {
+				width: 200px;
+			}
+			.preview_box video {
+            	width: 90%;
+            }
