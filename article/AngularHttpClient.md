@@ -97,6 +97,7 @@ showConfigResponse() {
 ```
 
 ### 返回文本
+
 ```typescript
 getTextFile(filename: string) {
   // The Observable returned by get() is of type Observable<string>
