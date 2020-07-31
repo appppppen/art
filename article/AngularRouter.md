@@ -183,7 +183,7 @@ NavigationError | 事件会在导航由于意料之外的错误而失败时触�
  比如如下的代码，教我们怎么来获取路由事件
 
  ``` typescript
- import {Component, HostBinding} from '@angular/core';
+import {Component, HostBinding} from '@angular/core';
 import {slideInDownAnimation} from '../animations';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RoutesRecognized} from '@angular/router';
 import {filter} from 'rxjs/operators';
