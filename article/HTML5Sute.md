@@ -23,15 +23,16 @@ iPad 界面尺寸：
 
 采用 CSS3 媒体查询可以为不同的媒体设置不同的 css 样式，这里的“媒体”包括页面尺寸，设备屏幕尺寸等，
 
-```typescript
-@media 媒体类型 and (视口特性阀值){ /* 媒体类型可以 all screen print 等*/
-    // 满足条件的css样式代码
+```css
+@media 媒体类型 and (视口特性阀值) {
+  /* 媒体类型可以 all screen print 等*/
+  // 满足条件的css样式代码
 }
 ```
 
 比如我们要为宽度大于 375px 的页面中的 class="content"的元素设置样式，可以这样写，
 
-```typescript
+```css
 @media screen and (min-width=375px) {
     .content { styles }
 };
@@ -59,43 +60,39 @@ iPad 界面尺寸：
 
 下面这段 css，估计很多人在响应式的网站经常看到类似下面这段：
 
-```typescript
-
-@media screen and (max-width: 960px){
-    body{
-        background: #000;
-    }
+```css
+@media screen and (max-width: 960px) {
+  body {
+    background: #000;
+  }
 }
-
 ```
 
 这个应该算是一个 media 的一个标准写法，上面这段 CSS 代码意思是：当页面小于 960px 的时候执行它下面的 CSS，这个应该没有太大疑问。
 
 下面就是我们最常需要用到的媒体查询器的三个特性，大于，等于，小于的写法：
 
-```typescript
-
+```css
 /*页面小于960px的时候*/
-@media screen and (max-device-width:960px){
-   html{
-       font-size: 80px;
-   }
+@media screen and (max-device-width: 960px) {
+  html {
+    font-size: 80px;
+  }
 }
 
 /*当尺寸大于960px时候 */
-@media screen and (min-width:960px){
-   html{
-       font-size: 90px;
-   }
+@media screen and (min-width: 960px) {
+  html {
+    font-size: 90px;
+  }
 }
 
 /* 当页面宽度大于960px小于1200px的时候执行下面的CSS */
-@media screen and (min-width:960px) and (max-width:1200px){
-   html{
-       font-size: 100px;
-   }
+@media screen and (min-width: 960px) and (max-width: 1200px) {
+  html {
+    font-size: 100px;
+  }
 }
-
 ```
 
 在移动端适配上通常使用的就是上面的方法，在文章后面会介绍国内大厂的具体使用方法，认真往下看
@@ -164,44 +161,43 @@ rem 是相对尺寸单位，rem 是将根节点 html 的 font-size 的值作为�
 
 1. 京东 的 web 移动端(设计图是 750\*1334)
 
-```typescript
-
+```css
 /*  京东 m.jd.com */
 
-@media only screen and (min-width: 320PX) and (max-width:360PX) {
-    html {
-        font-size:13.65px
-    }
+@media only screen and (min-width: 320px) and (max-width: 360px) {
+  html {
+    font-size: 13.65px;
+  }
 }
 
-@media only screen and (min-width: 360PX) and (max-width:375PX) {
-    html {
-        font-size:15.36px
-    }
+@media only screen and (min-width: 360px) and (max-width: 375px) {
+  html {
+    font-size: 15.36px;
+  }
 }
 
-@media only screen and (min-width: 375PX) and (max-width:390PX) {
-    html {
-        font-size:16px
-    }
+@media only screen and (min-width: 375px) and (max-width: 390px) {
+  html {
+    font-size: 16px;
+  }
 }
 
-@media only screen and (min-width: 390PX) and (max-width:414PX) {
-    html {
-        font-size:16.64px
-    }
+@media only screen and (min-width: 390px) and (max-width: 414px) {
+  html {
+    font-size: 16.64px;
+  }
 }
 
-@media only screen and (min-width: 414PX) and (max-width:640PX) {
-    html {
-        font-size:17.664px
-    }
+@media only screen and (min-width: 414px) and (max-width: 640px) {
+  html {
+    font-size: 17.664px;
+  }
 }
 
-@media screen and (min-width: 640PX) {
-    html {
-        font-size:27.31px
-    }
+@media screen and (min-width: 640px) {
+  html {
+    font-size: 27.31px;
+  }
 }
 
 /*
@@ -211,7 +207,6 @@ rem 是相对尺寸单位，rem 是将根节点 html 的 font-size 的值作为�
 则计算为rem： 40/16 = 2.5 rem
 
 */
-
 ```
 
 如下图： 京东 m 端在 iPhone 下的状态
@@ -233,118 +228,116 @@ iPhone5
 
 **注： vw：viewpoint width，视窗宽度，1vw 等于视窗宽度的 1%。**
 
-```typescript
-
-
+```css
 /* 网易新闻 3g.163.com */
-
-
 @media screen and (max-width: 320px) {
-    html {
-        font-size:42.667px;
-        font-size: 13.33333vw
-    }
+  html {
+    font-size: 42.667px;
+    font-size: 13.33333vw;
+  }
 }
 
-@media screen and (min-width: 321px) and (max-width:360px) {
-    html {
-        font-size:48px;
-        font-size: 13.33333vw
-    }
+@media screen and (min-width: 321px) and (max-width: 360px) {
+  html {
+    font-size: 48px;
+    font-size: 13.33333vw;
+  }
 }
 
-@media screen and (min-width: 361px) and (max-width:375px) {
-    html {
-        font-size:50px;
-        font-size: 13.33333vw
-    }
+@media screen and (min-width: 361px) and (max-width: 375px) {
+  html {
+    font-size: 50px;
+    font-size: 13.33333vw;
+  }
 }
 
-@media screen and (min-width: 376px) and (max-width:393px) {
-    html {
-        font-size:52.4px;
-        font-size: 13.33333vw
-    }
+@media screen and (min-width: 376px) and (max-width: 393px) {
+  html {
+    font-size: 52.4px;
+    font-size: 13.33333vw;
+  }
 }
 
-@media screen and (min-width: 394px) and (max-width:412px) {
-    html {
-        font-size:54.93px;
-        font-size: 13.33333vw
-    }
+@media screen and (min-width: 394px) and (max-width: 412px) {
+  html {
+    font-size: 54.93px;
+    font-size: 13.33333vw;
+  }
 }
 
-@media screen and (min-width: 413px) and (max-width:414px) {
-    html {
-        font-size:55.2px;
-        font-size: 13.33333vw
-    }
+@media screen and (min-width: 413px) and (max-width: 414px) {
+  html {
+    font-size: 55.2px;
+    font-size: 13.33333vw;
+  }
 }
 
-@media screen and (min-width: 415px) and (max-width:480px) {
-    html {
-        font-size:64px;
-        font-size: 13.33333vw
-    }
+@media screen and (min-width: 415px) and (max-width: 480px) {
+  html {
+    font-size: 64px;
+    font-size: 13.33333vw;
+  }
 }
 
-@media screen and (min-width: 481px) and (max-width:540px) {
-    html {
-        font-size:72px;
-        font-size: 13.33333vw
-    }
+@media screen and (min-width: 481px) and (max-width: 540px) {
+  html {
+    font-size: 72px;
+    font-size: 13.33333vw;
+  }
 }
 
-@media screen and (min-width: 541px) and (max-width:640px) {
-    html {
-        font-size:85.33px;
-        font-size: 13.33333vw
-    }
+@media screen and (min-width: 541px) and (max-width: 640px) {
+  html {
+    font-size: 85.33px;
+    font-size: 13.33333vw;
+  }
 }
 
-@media screen and (min-width: 641px) and (max-width:720px) {
-    html {
-        font-size:96px;
-        font-size: 13.33333vw
-    }
+@media screen and (min-width: 641px) and (max-width: 720px) {
+  html {
+    font-size: 96px;
+    font-size: 13.33333vw;
+  }
 }
 
-@media screen and (min-width: 721px) and (max-width:768px) {
-    html {
-        font-size:102.4px;
-        font-size: 13.33333vw
-    }
+@media screen and (min-width: 721px) and (max-width: 768px) {
+  html {
+    font-size: 102.4px;
+    font-size: 13.33333vw;
+  }
 }
 
 @media screen and (min-width: 769px) {
-    html {
-        font-size:102.4px;
-        font-size: 13.33333vw
-    }
+  html {
+    font-size: 102.4px;
+    font-size: 13.33333vw;
+  }
 }
 
 body {
-    font-family: PingFangSC-Regular,Microsoft YaHei,Helvetica;
-    background: #f5f7f9
+  font-family: PingFangSC-Regular, Microsoft YaHei, Helvetica;
+  background: #f5f7f9;
 }
 
-body,html a {
-    color: #333
+body,
+html a {
+  color: #333;
 }
 
-.hidden,.none {
-    display: none!important
+.hidden,
+.none {
+  display: none !important;
 }
 
 @media screen and (min-width: 769px) {
-    html {
-        font-size:102.4px
-    }
+  html {
+    font-size: 102.4px;
+  }
 
-    html .wap-wrap {
-        width: 768px;
-        margin: 0 auto
-    }
+  html .wap-wrap {
+    width: 768px;
+    margin: 0 auto;
+  }
 }
 
 /*
@@ -354,7 +347,6 @@ body,html a {
 则计算为rem： 117/50 = 2.34rem
 
 */
-
 ```
 
 如下图： 网易新闻在 iPhone 下的状态
@@ -368,7 +360,7 @@ iPhone6
 
 3. 阿里的 手机淘宝 触屏版 (设计图是 750\*1334)
 
-```typescript
+```javascript
 /* 阿里手机淘宝  h5.m.taobao.com */
 
 !(function (e, t) {
@@ -410,7 +402,7 @@ iPhone6
 
 4. 小米(设计图是 720\*1280)
 
-```typescript
+```javascript
 //小米  m.com
 
 !(function (e) {

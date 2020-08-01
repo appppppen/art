@@ -12,22 +12,21 @@
 
 通过监听 keydown 事件既可以知道键盘被按下：
 
-```
-document.onkeydown = function(event) {
-    // 键盘按下时触发
-	console.log('key down');
+```javascript
+document.onkeydown = function (event) {
+  // 键盘按下时触发
+  console.log("key down");
 };
 
-document.onkeypress = function(event) {
-    // 键盘按住时触发
-	console.log('key press');
+document.onkeypress = function (event) {
+  // 键盘按住时触发
+  console.log("key press");
 };
 
 document.onkeyup = function (event) {
-    // 键盘弹起时触发
-	console.log('key up');
+  // 键盘弹起时触发
+  console.log("key up");
 };
-
 // 控制台数据的顺序为：key down -> key press -> key up
 ```
 
@@ -45,16 +44,16 @@ document.onkeyup = function (event) {
 
 可以通过检查这些属性来判断用户按下的是什么键，以及是否 ctrl 和 alt 等键是否同时按下。
 
-```
-document.onkeydown = function(event) {
-    // 键盘按下是触发
-	console.log('key down: ' + event.key);
-	if (event.altKey) {
-	    console.log('alt is active');
-    }
-	if (event.shiftKey) {
-	    console.log('shift is active');
-	}
+```javascript
+document.onkeydown = function (event) {
+  // 键盘按下是触发
+  console.log("key down: " + event.key);
+  if (event.altKey) {
+    console.log("alt is active");
+  }
+  if (event.shiftKey) {
+    console.log("shift is active");
+  }
 };
 ```
 
@@ -103,10 +102,10 @@ MouseEvent 对象中包含下面比较有用的属性：
 
 下面的代码实现在一个表格中，点击每一个图片。
 
-```
-const images = document.getElementById('content').getElementsByTagName('img');
+```javascript
+const images = document.getElementById("content").getElementsByTagName("img");
 for (let image of images) {
-	images.click();
+  images.click();
 }
 ```
 
@@ -142,13 +141,9 @@ mouseEventInit 为 MouseEvent 初始化的选项，指定鼠标事件的各种�
 - metaKey: 布尔值，windows 平台表示 Window 键是否同时按下，mac 表示 Command 键是否同时按下
   比如下面的示例在坐标 200,200 处触发一个鼠标双击事件：
 
-```
+```javascript
 // 创建一个event对象
-const createEvent = new MouseEvent('dblclick', {
-	clientX: 300,
-	clientY: 300,
-});
-
+const createEvent = new MouseEvent("dblclick", { clientX: 300, clientY: 300 });
 // 触发该事件
 document.dispatchEvent(createEvent);
 ```
@@ -179,20 +174,22 @@ typeArg 为键盘输入事件类型，即上面的监听键盘输入事件去掉
 
 比如实现在按下字母'a'键时，自动按下'alt+ctrl+a'可以像下面实现。
 
-```
+```javascript
 // 监听按键事件
-document.onkeydown = function(event) {
-	console.log('keyCode: ' + event.keyCode + ' code: ' + event.code + ' alt:' + event.altKey);
-	if (event.keyCode === 65 || event.code === 'KeyA') {
-		// 如果按下的是a键，则新建一个a键按下的事件并触发
-		const createEvent = new KeyboardEvent('keydown', {
-			altKey: true,
-			shiftKey: true,
-			keyCode: 65,
-			code: 'KeyA'
-		});
-		document.dispatchEvent(createEvent);
-	}
+document.onkeydown = function (event) {
+  console.log(
+    `keyCode: ${event.keyCode} code: ${event.code} alt:${event.altKey}`
+  );
+  if (event.keyCode === 65 || event.code === "KeyA") {
+    // 如果按下的是a键，则新建一个a键按下的事件并触发
+    const createEvent = new KeyboardEvent("keydown", {
+      altKey: true,
+      shiftKey: true,
+      keyCode: 65,
+      code: "KeyA",
+    });
+    document.dispatchEvent(createEvent);
+  }
 };
 ```
 

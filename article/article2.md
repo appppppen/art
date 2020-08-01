@@ -29,20 +29,20 @@ Additional references can be found on <https://preview.babylonjs.com/xxx> where 
 
 BabylonJS and its modules are published on npm with full typing support. To install, use:
 
-```text
+```nodejs
 npm install babylonjs --save
 ```
 
 This will allow you to import BabylonJS entirely using:
 
-```javascript
-import * as BABYLON from 'babylonjs';
+```typescript
+import * as BABYLON from "babylonjs";
 ```
 
 or individual classes using:
 
-```javascript
-import { Scene, Engine } from 'babylonjs';
+```typescript
+import { Scene, Engine } from "babylonjs";
 ```
 
 If using TypeScript, don't forget to add 'babylonjs' to 'types' in `tsconfig.json`:
@@ -62,41 +62,59 @@ To add a module, install the respective package. A list of extra packages and th
 
 See [Getting Started](https://doc.babylonjs.com/#getting-started):
 
-```javascript
+```typescript
 // Get the canvas DOM element
-var canvas = document.getElementById('renderCanvas');
+var canvas = document.getElementById("renderCanvas");
 // Load the 3D engine
-var engine = new BABYLON.Engine(canvas, true, {preserveDrawingBuffer: true, stencil: true});
+var engine = new BABYLON.Engine(canvas, true, {
+  preserveDrawingBuffer: true,
+  stencil: true,
+});
 // CreateScene function that creates and return the scene
-var createScene = function(){
-    // Create a basic BJS Scene object
-    var scene = new BABYLON.Scene(engine);
-    // Create a FreeCamera, and set its position to {x: 0, y: 5, z: -10}
-    var camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 5, -10), scene);
-    // Target the camera to scene origin
-    camera.setTarget(BABYLON.Vector3.Zero());
-    // Attach the camera to the canvas
-    camera.attachControl(canvas, false);
-    // Create a basic light, aiming 0, 1, 0 - meaning, to the sky
-    var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0, 1, 0), scene);
-    // Create a built-in "sphere" shape; its constructor takes 6 params: name, segment, diameter, scene, updatable, sideOrientation
-    var sphere = BABYLON.Mesh.CreateSphere('sphere1', 16, 2, scene, false, BABYLON.Mesh.FRONTSIDE);
-    // Move the sphere upward 1/2 of its height
-    sphere.position.y = 1;
-    // Create a built-in "ground" shape; its constructor takes 6 params : name, width, height, subdivision, scene, updatable
-    var ground = BABYLON.Mesh.CreateGround('ground1', 6, 6, 2, scene, false);
-    // Return the created scene
-    return scene;
-}
+var createScene = function () {
+  // Create a basic BJS Scene object
+  var scene = new BABYLON.Scene(engine);
+  // Create a FreeCamera, and set its position to {x: 0, y: 5, z: -10}
+  var camera = new BABYLON.FreeCamera(
+    "camera1",
+    new BABYLON.Vector3(0, 5, -10),
+    scene
+  );
+  // Target the camera to scene origin
+  camera.setTarget(BABYLON.Vector3.Zero());
+  // Attach the camera to the canvas
+  camera.attachControl(canvas, false);
+  // Create a basic light, aiming 0, 1, 0 - meaning, to the sky
+  var light = new BABYLON.HemisphericLight(
+    "light1",
+    new BABYLON.Vector3(0, 1, 0),
+    scene
+  );
+  // Create a built-in "sphere" shape; its constructor takes 6 params: name, segment, diameter, scene, updatable, sideOrientation
+  var sphere = BABYLON.Mesh.CreateSphere(
+    "sphere1",
+    16,
+    2,
+    scene,
+    false,
+    BABYLON.Mesh.FRONTSIDE
+  );
+  // Move the sphere upward 1/2 of its height
+  sphere.position.y = 1;
+  // Create a built-in "ground" shape; its constructor takes 6 params : name, width, height, subdivision, scene, updatable
+  var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene, false);
+  // Return the created scene
+  return scene;
+};
 // call the createScene function
 var scene = createScene();
 // run the render loop
-engine.runRenderLoop(function(){
-    scene.render();
+engine.runRenderLoop(function () {
+  scene.render();
 });
 // the canvas/window resize event handler
-window.addEventListener('resize', function(){
-    engine.resize();
+window.addEventListener("resize", function () {
+  engine.resize();
 });
 ```
 
@@ -111,6 +129,7 @@ If you want to contribute, please read our [contribution guidelines](https://git
 - [Examples](https://doc.babylonjs.com/examples)
 
 ## Contributing
+
 Please see the [Contributing Guidelines](./contributing.md)
 
 ## Useful links

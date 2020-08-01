@@ -1,13 +1,12 @@
-##新建Unity工程
+##新建 Unity 工程
 
-
-
-##unity泛型单例脚本
+##unity 泛型单例脚本
 SingletonUnity.cs
-```cs
+
+```csharp
 using UnityEngine;
 public class SingletonUnity<T> : MonoBehaviour where T : MonoBehaviour
-{	
+{
 	public static T instance = null;
     public virtual void Awake()
     {
@@ -23,9 +22,11 @@ public class SingletonUnity<T> : MonoBehaviour where T : MonoBehaviour
     }
 }
 ```
-##调用Java脚本
+
+##调用 Java 脚本
 MobPlugin .cs
-```cs
+
+```csharp
 using UnityEngine;
 
 public class MobPlugin : SingletonUnity<MobPlugin>
@@ -62,9 +63,11 @@ public class MobPlugin : SingletonUnity<MobPlugin>
     }
 }
 ```
+
 ####测试脚本
 TestAndroid.cs
-```cs
+
+```csharp
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -84,61 +87,60 @@ public class TestAndroid : MonoBehaviour {
 }
 ```
 
-##简易unity界面搭建
+##简易 unity 界面搭建
 ![QQ截图20181119155934.png](https://upload-images.jianshu.io/upload_images/5336648-4c9536e968c40ab9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-##unity导出设置
+##unity 导出设置
 包名可以随意命名之后用不到该包名
 ![QQ截图20181119160236.png](https://upload-images.jianshu.io/upload_images/5336648-c84c313ec17ed5e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![QQ截图20181119160225.png](https://upload-images.jianshu.io/upload_images/5336648-ba696dda4b80a8db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-####导出后的Android工程中间件
-![QQ截图20181119160358.png](https://upload-images.jianshu.io/upload_images/5336648-563d3349052988c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-###新建Android工程
-![QQ截图20181119152618.png](https://upload-images.jianshu.io/upload_images/5336648-bb8ff55393977b3d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-####这里使用Android 8.0
-因为Google play的要求
+![QQ截图20181119160225.png](https://upload-images.jianshu.io/upload_images/5336648-ba696dda4b80a8db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) ####导出后的 Android 工程中间件
+![QQ截图20181119160358.png](https://upload-images.jianshu.io/upload_images/5336648-563d3349052988c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) ###新建 Android 工程
+![QQ截图20181119152618.png](https://upload-images.jianshu.io/upload_images/5336648-bb8ff55393977b3d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) ####这里使用 Android 8.0
+因为 Google play 的要求
 ![QQ截图20181119152639.png](https://upload-images.jianshu.io/upload_images/5336648-9c8741e36bd8262a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-新建空Activity
+新建空 Activity
 ![QQ截图20181119152651.png](https://upload-images.jianshu.io/upload_images/5336648-4bd5ff99002da777.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ![QQ截图20181119152716.png](https://upload-images.jianshu.io/upload_images/5336648-ea4a30d3bcf78bec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-新建一个模块作为unity模块供主模块调用，让代码更简洁
+新建一个模块作为 unity 模块供主模块调用，让代码更简洁
 ![QQ截图20181119154107.png](https://upload-images.jianshu.io/upload_images/5336648-8ef1e1b2d474aa6e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ![QQ截图20181119154121.png](https://upload-images.jianshu.io/upload_images/5336648-7816ff043f1d26ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ![QQ截图20181119154146.png](https://upload-images.jianshu.io/upload_images/5336648-e550779ad645be3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-#####settings.gradle中要包含unity模块
-![QQ截图20181119154222.png](https://upload-images.jianshu.io/upload_images/5336648-fdb7d2ef8ef69953.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-#####在app模块添加依赖
+#####settings.gradle 中要包含 unity 模块
+![QQ截图20181119154222.png](https://upload-images.jianshu.io/upload_images/5336648-fdb7d2ef8ef69953.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) #####在 app 模块添加依赖
+
 ```java
   implementation project(':unitylib')
 ```
+
 ![QQ截图20181119154340.png](https://upload-images.jianshu.io/upload_images/5336648-52280b6f66819ea9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-添加assets文件夹
+添加 assets 文件夹
 ![QQ截图20181119154439.png](https://upload-images.jianshu.io/upload_images/5336648-610477c91d9377a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-添加jniLibs文件夹
+添加 jniLibs 文件夹
 
 ![QQ截图20181119155208.png](https://upload-images.jianshu.io/upload_images/5336648-00e3698e9cbee3be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 同步代码混淆规则配置文件
 ![QQ截图20181119160439.png](https://upload-images.jianshu.io/upload_images/5336648-e6bca16142585ed9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ![QQ截图20181119160501.png](https://upload-images.jianshu.io/upload_images/5336648-58e84ca50a6407da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-同步unitylib模块的 gradlew
+同步 unitylib 模块的 gradlew
 ![QQ截图20181119160552.png](https://upload-images.jianshu.io/upload_images/5336648-83f36d4a9fd0c969.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ![QQ截图20181119160634.png](https://upload-images.jianshu.io/upload_images/5336648-6f8cfe42b3191c7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-放置jar包
+放置 jar 包
 ![QQ截图20181119160732.png](https://upload-images.jianshu.io/upload_images/5336648-2a6b8ff9afd3492a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-放置assets下的文件
+放置 assets 下的文件
 ![QQ截图20181119160805.png](https://upload-images.jianshu.io/upload_images/5336648-113e1fd38da2bbab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-放置.so文件
+放置.so 文件
 ![QQ截图20181119160821.png](https://upload-images.jianshu.io/upload_images/5336648-eab9cdcad334ae37.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ![QQ截图20181119160847.png](https://upload-images.jianshu.io/upload_images/5336648-ffb070918f1846ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#####修改UnityPlayerActivity.java
+#####修改 UnityPlayerActivity.java
+
 ```java
 package com.apen.unitylib;//package com.apen.uni;将之前的包名修改为库模块的包名
 
@@ -168,7 +170,9 @@ public class UnityPlayerActivity extends Activity
 ....//打包后生成的代码保留，仅删除protected void onCreate(Bundle savedInstanceState) {}方法，为了之后继承该activity不出错
 }
 ```
-在app模块中继承UnityPlayerActivity并设置视图
+
+在 app 模块中继承 UnityPlayerActivity 并设置视图
+
 ```java
 package com.apen.unity;
 
@@ -216,7 +220,7 @@ public class UnityActivity extends WebActivity {
 }
 ```
 
-视图xml
+视图 xml
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -236,7 +240,8 @@ public class UnityActivity extends WebActivity {
         android:text="TestAndroid"/>
 </RelativeLayout>
 ```
-配置Android 清单文件
+
+配置 Android 清单文件
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -287,4 +292,5 @@ public class UnityActivity extends WebActivity {
 
 </manifest>
 ```
-git：https://github.com/appppppen/Unity4Android-Project.git，欢迎star
+
+git：https://github.com/appppppen/Unity4Android-Project.git ，欢迎 star

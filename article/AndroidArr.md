@@ -2,19 +2,19 @@
 
 (2）在工程的当前 module 的 gradle（app/build.gradle）的 dependencies 节点前添加：
 
-```gradle
+```groovy
 repositories {    flatDir {dirs'libs'}}
 ```
 
 并且在 dependencies 中添加：
 
-```gradle
+```groovy
 compile(name: ‘HDDecodeLibrary_1.1.03_a’, ext: ‘aar’)
 ```
 
 一个完整的 build.gradle 例子如下：
 
-```gradle
+```groovy
 apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25

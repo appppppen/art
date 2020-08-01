@@ -155,11 +155,10 @@ var iframeCon = docuemnt.querySelector('#container'),
 
 第二步,设置 iframe 的高为 body 的高
 
-```java
+```javascript
 var iwindow = iframe.contentWindow;
 var idoc = iwindow.document;
 iframe.height = idoc.body.offsetHeight;
-
 ```
 
 另外,还可以添加其它的装饰属性:
@@ -240,7 +239,7 @@ X-Frame-Options 是一个相应头，主要是描述服务器的网页资源的 
 
 X-Frame-Options 其实就是将前端 js 对 iframe 的把控交给服务器来进行处理。
 
-```js
+```javascript
 //js
 if(window != window.top){
     window.top.location.href = window.location.href;
@@ -351,7 +350,7 @@ iframe 就是一个隔离沙盒，相当于我们在一个页面内可以操控�
 首先我们需要明确什么是跨域。
 浏览器判断你跨没跨域，主要根据两个点。 一个是你网页的协议(protocol)，一个就是你的 host 是否相同，即，就是 url 的首部:
 
-```js
+```javascript
 window.location.protocol + window.location.host;
 ```
 
@@ -375,7 +374,7 @@ http://a.com/b.js
 http: //www.foo.com/a.html 和 http: //script.foo.com/b.html
 两个文件中分别加上 document.domain = ‘foo.com’,指定相同的主域，然后,两个文档就可以进行交互。
 
-```js
+```javascript
 //b.html是以iframe的形式嵌套在a.html中
 
 //www.foo.com上的a.html
@@ -422,7 +421,7 @@ targetOrigin: 接受你传递消息的域名，可以设置绝对路径，也可
 <iframe src="http://tuhao.com" name="sendMessage"></iframe>
 ```
 
-```js
+```javascript
 //当前脚本
 let ifr = window.frames["sendMessage"];
 //使用iframe的window向iframe发送message。

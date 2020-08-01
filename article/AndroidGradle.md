@@ -3,7 +3,7 @@
 ###1. 替换 AndroidManifest 中的占位符
 我想把其中的\${app_label}替换为@string/app_name
 
-```gradle
+```groovy
 android{
     defaultConfig{
         manifestPlaceholders = [app_label:"@string/app_name"]
@@ -12,7 +12,7 @@ android{
 
 如果只想替换 debug 版本：
 
-```gradle
+```groovy
 android{
     buildTypes {
         debug {
@@ -26,7 +26,7 @@ android{
 
 更多的需求是替换渠道编号：
 
-```gradle
+```groovy
 android{
     productFlavors {
         // 把dev产品型号的apk的AndroidManifest中的channel替换dev
@@ -51,7 +51,7 @@ RELEASE_STORE_FILE=../.keystore/xxx.jks
 
 然后在 build.gradle 中引用即可：
 
-```gradle
+```groovy
 android {
     signingConfigs {
         release {
@@ -70,7 +70,7 @@ android {
 
 多渠道打包的关键之处在于，定义不同的 product flavor, 并把 AndroiManifest 中的 channel 渠道编号替换为对应的 flavor 标识：
 
-```gradle
+```groovy
 android {
     productFlavors {
 
@@ -99,7 +99,7 @@ android {
 注意一点，这里的 flavor 名如果是数字开头，必须用引号引起来。
 构建一下，就能生成一系列的 Build Variant 了:
 
-```gradle
+```groovy
 devDebug
 devRelease
 officialDebug
@@ -119,7 +119,7 @@ xiaomiRelease
 
 前面说到默认的 build type 有两种 debug 和 release，区别如下：
 
-```gradle
+```groovy
 // release版本生成的BuildConfig特性信息
 public final class BuildConfig {
   public static final boolean DEBUG = false;
@@ -137,7 +137,7 @@ public final class BuildConfig {
 
 其实很简单：
 
-```gradle
+```groovy
 android {
 
     signingConfigs {
@@ -188,7 +188,7 @@ android {
 上面我们在不同的 build type 替换\${app_label}为不同的字符串，这样安装到手机上就能明显的区分出不同 build type 的版本。
 除此之外，可能还可以配置一些参数，我这里列几个我在工作中用到的：
 
-```gradle
+```groovy
 android {
 
         debug {
@@ -223,7 +223,7 @@ android {
 
 这些都用的太多了，稍微解释一下：
 
-```gradle
+```groovy
 // minifyEnabled 混淆处理
 // shrinkResources 去除无用资源
 // signingConfig 签名
@@ -238,7 +238,7 @@ android {
 随着产品渠道的铺开，往往一套代码需要支持多个产品形态，这就需要抽象出主要代码到一个 Library，然后基于 Library 扩展几个 App Module。
 相信每个 module 的 build.gradle 都会有这个代码：
 
-```gradle
+```groovy
 android {
     compileSdkVersion 22
     buildToolsVersion "23.0.1"
@@ -255,7 +255,7 @@ android {
 强大的 gradle 插件在 1.1.0 支持全局变量设定，一举解决了这个问题。
 先在 project 的根目录下的 build.gradle 定义 ext 全局变量:
 
-```gradle
+```groovy
 ext {
     compileSdkVersion = 22
     buildToolsVersion = "23.0.1"
@@ -268,7 +268,7 @@ ext {
 
 然后在各 module 的 build.gradle 中引用如下：
 
-```gradle
+```groovy
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -289,7 +289,7 @@ android {
 默认 android studio 生成的 apk 名称为 app-debug.apk 或者 app-release.apk，当有多个渠道的时候，需要同时编出 50 个渠道包的时候，就麻烦了，不知道谁是谁了。
 这个时候，就需要自定义导出的 APK 名称了，不同的渠道编出的 APK 的文件名应该是不一样的。
 
-```gradle
+```groovy
 android {
     // rename the apk with the version name
     applicationVariants.all { variant ->
@@ -304,7 +304,7 @@ android {
 
 当 apk 太多时，如果能把 apk 按 debug，release，preview 分一下类就更好了（事实上，对于我这样经常发版的人，一编往往就要编四五十个版本的人，debug 和 release 版本全混在一起没法看，必须分类），简单：
 
-```gradle
+```groovy
 android {
     // rename the apk with the version name
     // add output file sub folder by build type
@@ -332,7 +332,7 @@ android {
 
 ##### 位于 module 下的 proguard-rules.pro
 
-```
+```groovy
 #####################################
 ######### 主程序不能混淆的代码 #########
 #####################################
@@ -344,7 +344,7 @@ android {
 
 ##### 等等，自己的代码自己清楚
 
-```
+```groovy
 #####################################
 ########### 不优化泛型和反射 ##########
 #####################################
@@ -354,14 +354,14 @@ android {
 
 接下来是麻烦的第三方库，一般来说，如果是极光推的话，它的包名是 cn.jpush, 添加如下代码即可：
 
-```
+```groovy
 -dontwarn cn.jpush.**
 -keep class cn.jpush.** { *; }
 ```
 
 其他的第三库也是如此，一个一个添加，太累！其实可以用第三方反编译工具（比如 jadx：https://github.com/skylot/jadx ），打开 apk 后，一眼就能看到引用的所有第三方库的包名，把所有不想混淆或者不确定能不能混淆的，直接都添加又有何不可：
 
-```
+```groovy
 #####################################
 ######### 第三方库或者jar包 ###########
 #####################################
@@ -417,7 +417,7 @@ android {
 
 一般 release 版本混淆之后，像友盟这样的统计系统如果有崩溃异常，会记录如下：
 
-```
+```java
 java.lang.NullPointerException: java.lang.NullPointerException
 
     at com.xxx.TabMessageFragment$7.run(Unknown Source)
@@ -437,7 +437,7 @@ project > module
 
 其实，在 proguard-rules.pro 中添加如下代码即可：
 
-```
+```groovy
 -keepattributes SourceFile,LineNumberTable
 ```
 
@@ -447,7 +447,7 @@ project > module
 
 假如想把当前的编译时间、编译的机器、最新的 commit 版本添加到 apk，而这些信息又不好写在代码里，强大的 gradle 给了我创造可能的自信：
 
-```gradle
+```groovy
 android {
 
     defaultConfig {

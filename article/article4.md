@@ -20,11 +20,9 @@ GitHub 地址：volley GitHub 地址
 
 4. Fast Android Networking
 
-基于OkHttp的Fast Android Networking能让网络通信变得简洁（不用样板代码），使得开发者能轻易写出通信代码。它是一个轻量级的快速网络通信库。试试看，你会爱上它。
+基于 OkHttp 的 Fast Android Networking 能让网络通信变得简洁（不用样板代码），使得开发者能轻易写出通信代码。它是一个轻量级的快速网络通信库。试试看，你会爱上它。
 
 GitHub 地址：FastAndroidNetworking GitHub 地址
-
-
 
 二、图片加载库
 
@@ -32,7 +30,7 @@ GitHub 地址：FastAndroidNetworking GitHub 地址
 
 1. glide
 
-在泰国举行的谷歌开发者论坛上，谷歌为我们介绍了一个名叫 glide 的图片加载框架，作者是 bumptech 这个库被广泛的应用在 Google 开源的项目中，包括 2014 年 Google  I/O 大会上发布的官方 App
+在泰国举行的谷歌开发者论坛上，谷歌为我们介绍了一个名叫 glide 的图片加载框架，作者是 bumptech 这个库被广泛的应用在 Google 开源的项目中，包括 2014 年 Google I/O 大会上发布的官方 App
 
 GitHub 地址：Glide GitHub 地址
 
@@ -50,13 +48,13 @@ GitHub 地址：picasso GitHub 地址
 
 4. Android-Universal-Image-Loader
 
- 看到这个，想必有一定经验的 Android 开发者都会非常的熟悉，曾经的图片加载之王当之无愧，15.4k 的 stars 足以证明它的热门，与 glide 不同的是 UIL 提供了大量的配置方式，图片加载状态的回调，加载动画等，以及提供了移动端图片加载框架的缓存思路，三级缓存策略等
+看到这个，想必有一定经验的 Android 开发者都会非常的熟悉，曾经的图片加载之王当之无愧，15.4k 的 stars 足以证明它的热门，与 glide 不同的是 UIL 提供了大量的配置方式，图片加载状态的回调，加载动画等，以及提供了移动端图片加载框架的缓存思路，三级缓存策略等
 
 GitHub 地址：UIL GitHub 地址
 
 5. PhotoView
 
- 一款 ImageView 展示框架，支持缩放，响应手势，位于图片排行榜的第五位，PhotoView 与上面不同的是图片的展示功能，可以实现类似微信头像的放大功能，还有就是很多 App 的图片显示响应手势按压式如何是现实的，这里 PhotoView 将都可以轻松实现
+一款 ImageView 展示框架，支持缩放，响应手势，位于图片排行榜的第五位，PhotoView 与上面不同的是图片的展示功能，可以实现类似微信头像的放大功能，还有就是很多 App 的图片显示响应手势按压式如何是现实的，这里 PhotoView 将都可以轻松实现
 
 GitHub 地址：PhotoView GitHub 地址
 
@@ -70,21 +68,21 @@ GitHub 地址：CircleImageView GitHub 地址
 
 三、UI
 
- 1. material-dialogs
+1.  material-dialogs
 
-是一款自定义View框架，如多你还是一个自定义 View 的新人，对 Dialog 使用还有点生疏，那么通过使用 material-dialogs 可以提升你的 Dilaog 使用能力
+是一款自定义 View 框架，如多你还是一个自定义 View 的新人，对 Dialog 使用还有点生疏，那么通过使用 material-dialogs 可以提升你的 Dilaog 使用能力
 
 GitHub 地址：material-dialogs GitHub 地址
 
 2. flexbox-layout
 
- 是一款弹性伸缩布局，FlexboxLayout 作为 LinearLayout 和 RelativeLayout 的替代者，值得大家在项目开发中去尝试使用，毕竟是 Google 出品
+是一款弹性伸缩布局，FlexboxLayout 作为 LinearLayout 和 RelativeLayout 的替代者，值得大家在项目开发中去尝试使用，毕竟是 Google 出品
 
 GitHub 地址：flexbox-layout GitHub 地址
 
 3. AndroidSwipeLayout
 
- 非常强大的滑动式布局，滑动删除是我们 app 中的常见需求，商品详情的上下滑动需求在实际开发中我们也是经常遇到，AndroidSwipeLayout 在 GitHub 上有 8300 个 stars，证明还是值得使用
+非常强大的滑动式布局，滑动删除是我们 app 中的常见需求，商品详情的上下滑动需求在实际开发中我们也是经常遇到，AndroidSwipeLayout 在 GitHub 上有 8300 个 stars，证明还是值得使用
 
 GitHub 地址：AndroidSwipeLayout GitHub 地址
 
@@ -130,7 +128,7 @@ GitHub 地址：lottie-android GitHub 地址
 
 2. Material-Animations
 
- 一款提供场景转换过渡能力的动画框架，与 lottie-android 不同的是，Material-Animations 提供的是场景切换的动画效果
+一款提供场景转换过渡能力的动画框架，与 lottie-android 不同的是，Material-Animations 提供的是场景切换的动画效果
 
 GitHub 地址：Material-Animations GitHub 地址
 
@@ -150,13 +148,13 @@ GitHub 地址：recyclerview-animators GitHub 地址
 
 1. fastjson
 
- 一款基于 json 解析、生成的框架，是阿里出品，这就保证了代码的质量，在网络请求时使用较多，值得尝试
+一款基于 json 解析、生成的框架，是阿里出品，这就保证了代码的质量，在网络请求时使用较多，值得尝试
 
 GitHub 地址：fastjson GitHub 地址
 
 2. GSON
 
- 一个提供Java对象序列化/反序列化至JSON格式的库。
+一个提供 Java 对象序列化/反序列化至 JSON 格式的库。
 
 GitHub 地址：gson GitHub 地址
 
@@ -164,7 +162,7 @@ GitHub 地址：gson GitHub 地址
 
 1. leakcanary
 
- 一款内存检测框架，服务于 Java 和 Andorid 客户端，方便简洁是 leakcanary 最大的特点，只需要在应用的 apllication 中集成，就可以直接使用它，15.9k 的 stars 足够说明它的厉害，最关键是是，它也是 square 团队的作品，就这一条，不用说相信大家也都明白
+一款内存检测框架，服务于 Java 和 Andorid 客户端，方便简洁是 leakcanary 最大的特点，只需要在应用的 apllication 中集成，就可以直接使用它，15.9k 的 stars 足够说明它的厉害，最关键是是，它也是 square 团队的作品，就这一条，不用说相信大家也都明白
 
 GitHub 地址：leakcanary GitHub 地址
 
@@ -172,7 +170,7 @@ GitHub 地址：leakcanary GitHub 地址
 
 1. ARouter
 
- 一款提供服务、页面跳转的路由框架，由阿里出品，该框架提供：从外部 URL 映射到内部页面、跨模块的页面跳转（模块化必备，页面解耦），拦截跳转过程等能力，绝对是一个企业级的开发框架
+一款提供服务、页面跳转的路由框架，由阿里出品，该框架提供：从外部 URL 映射到内部页面、跨模块的页面跳转（模块化必备，页面解耦），拦截跳转过程等能力，绝对是一个企业级的开发框架
 
 GitHub 地址：ARouter GitHub 地址
 
@@ -190,7 +188,7 @@ greenDAO 是一款高效、快速的 SQLite 型数据库，star 数量和 Realm 
 
 GitHub 地址：greenDAO GitHub 地址
 
-九、异步 
+九、异步
 
 1. RxJava
 
@@ -244,63 +242,63 @@ GitHub 地址：butterknife GitHub 地址
 
 十三、其它
 
-1.Device Year Class 
+1.Device Year Class
 
-Device Year Class会告知当前设备的内存，CPU核和时钟频率在哪一年的产品线里属于高配。它可以让开发者根据手机的硬件性能来让app做出不同的行为。
+Device Year Class 会告知当前设备的内存，CPU 核和时钟频率在哪一年的产品线里属于高配。它可以让开发者根据手机的硬件性能来让 app 做出不同的行为。
 
 GitHub 地址：DeviceYearClass GitHub 地址
 
 2.Network Connection Class
 
-Network Connection Class能够查询当前用户的网络连接质量。它会根据网络质量的不同分成好几种”Connection Classes”（连接分类）让开发更容易。这个库通过监听app已有的网络流量情况并在通信速度改变的时候通知用户。开发者能够通过网络连接情况调节app的行为（比如使用更低质量的影音，停止使用输入提示等等）。
+Network Connection Class 能够查询当前用户的网络连接质量。它会根据网络质量的不同分成好几种”Connection Classes”（连接分类）让开发更容易。这个库通过监听 app 已有的网络流量情况并在通信速度改变的时候通知用户。开发者能够通过网络连接情况调节 app 的行为（比如使用更低质量的影音，停止使用输入提示等等）。
 
 GitHub 地址：NetworkConnection GitHub 地址
 
 3.Android Debug Database
 
-Android Debug Database是一个功能强大的用于调试安卓数据库和共享首选项(shared preference)的库。它是一个在浏览器里浏览数据库和共享首选项的简单易用的工具。
+Android Debug Database 是一个功能强大的用于调试安卓数据库和共享首选项(shared preference)的库。它是一个在浏览器里浏览数据库和共享首选项的简单易用的工具。
 
 GitHub 地址：DebugDatabase GitHub 地址
 
 4.LeakCanary
 
-LeakCanary是一个安卓和Java上用于检测内存泄漏的一个库。
+LeakCanary 是一个安卓和 Java 上用于检测内存泄漏的一个库。
 
 GitHub 地址：Leakcanary GitHub 地址
 
 5.Dagger
 
-安卓和java的快速的依赖注入库。它简化了对于共用实例的读写，使复杂的依赖设置变的简单，让单元测试和集成测试更加容易。
+安卓和 java 的快速的依赖注入库。它简化了对于共用实例的读写，使复杂的依赖设置变的简单，让单元测试和集成测试更加容易。
 
 GitHub 地址：Dagger GitHub 地址
 
 6.Realm
 
-简单存储，高速查询，节省大量开发时间。Realm Mobile Database是SQLite的一个替代品，一个ORM解决框架。
+简单存储，高速查询，节省大量开发时间。Realm Mobile Database 是 SQLite 的一个替代品，一个 ORM 解决框架。
 
 GitHub 地址：Realm GitHub 地址
 
 7.Timber
 
-在安卓原有的Log class之上提供有小型，可扩展API的一个Logger.
+在安卓原有的 Log class 之上提供有小型，可扩展 API 的一个 Logger.
 
 GitHub 地址：Timber GitHub 地址
 
 8.Hugo
 
-通过标注触发为你的debug build自动记录方法调用的日志。作为一个程序员，你经常需要加入logging函数打印程序里面的函数调用，以及参数和返回值，并花时间执行。这不是什么问题，我们每个人都这样做。只是能不能够让它变得更简单一些呢？只要在函数头加上@DebugLog你就能得到我们刚才所讲的所有信息。
+通过标注触发为你的 debug build 自动记录方法调用的日志。作为一个程序员，你经常需要加入 logging 函数打印程序里面的函数调用，以及参数和返回值，并花时间执行。这不是什么问题，我们每个人都这样做。只是能不能够让它变得更简单一些呢？只要在函数头加上@DebugLog 你就能得到我们刚才所讲的所有信息。
 
 GitHub 地址：Hugo GitHub 地址
 
 9.Android GPU Image
 
-提供安卓上高效的基于OpenGL的滤镜的库。
+提供安卓上高效的基于 OpenGL 的滤镜的库。
 
 GitHub 地址：GPU Image GitHub 地址
 
 10.ExoPlayer
 
-ExoPlayer是一个应用级的安卓媒播放器。它提供的API支持播放本地或者网络上的音频。ExoPlayer支持当前安卓媒体播放器API不支持的功能，比如DASH和Smooth Streaming adaptive playbacks(根据带宽自动实时调节播放分辨率).
+ExoPlayer 是一个应用级的安卓媒播放器。它提供的 API 支持播放本地或者网络上的音频。ExoPlayer 支持当前安卓媒体播放器 API 不支持的功能，比如 DASH 和 Smooth Streaming adaptive playbacks(根据带宽自动实时调节播放分辨率).
 
 GitHub 地址：ExoPlayer GitHub 地址
 

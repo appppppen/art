@@ -1,11 +1,11 @@
-## Httpclient引入
-
+## Httpclient 引入
 
 ### 模块引入
+
 ```typescript
-import { NgModule }         from '@angular/core';
-import { BrowserModule }    from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   imports: [
@@ -13,35 +13,36 @@ import { HttpClientModule } from '@angular/common/http';
     // import HttpClientModule after BrowserModule.
     HttpClientModule,
   ],
-  declarations: [
-    AppComponent,
-  ],
-  bootstrap: [ AppComponent ]
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
-
 ```
+
 ### httpclient 注入
+
 ```typescript
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 @Injectable()
 export class ConfigService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 }
 ```
-## get请求
 
-### ts定义数据类型
+## get 请求
+
+### ts 定义数据类型
 
 ```typescript
 export interface Config {
   heroesUrl: string;
   textfile: string;
 }
-
 ```
-### 定义service
+
+### 定义 service
+
 ```typescript
 configUrl = 'assets/config.json';
 
@@ -57,7 +58,8 @@ getConfig():Observable<Config> {
 
 ```
 
-### 调用service
+### 调用 service
+
 ```typescript
 config: Config;
  showConfig() {
@@ -66,12 +68,14 @@ config: Config;
         heroesUrl: data['heroesUrl'],
         textfile:  data['textfile']
     });
-	// or 
+	// or
 	 .subscribe((data: Config) => this.config = { ...data });
 }
 
 ```
+
 ### 修改返回数据类型
+
 ```typescript
 getConfigResponse(): Observable<HttpResponse<Config>> {
   return this.http.get<Config>(
@@ -79,8 +83,10 @@ getConfigResponse(): Observable<HttpResponse<Config>> {
 }
 
 ```
+
 - 返回类型修改 HttpResponse< Config >
 - 请求参数添加，{ observe: 'response' }
+
 ```typescript
 showConfigResponse() {
   this.configService.getConfigResponse()
@@ -114,25 +120,26 @@ getTextFile(filename: string) {
 
 ```
 
-### jsonp请求
+### jsonp 请求
+
 ```typescript
-import { NgModule }         from '@angular/core';
-import { BrowserModule }    from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-import {HttpClientJsonpModule} from  '@angular/common/http';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from "@angular/common/http";
+import { HttpClientJsonpModule } from "@angular/common/http";
 @NgModule({
   imports: [
     BrowserModule,
     // import HttpClientModule after BrowserModule.
     HttpClientModule,
-	HttpClientJsonpModule
+    HttpClientJsonpModule,
   ],
-  declarations: [ AppComponent ],
-  bootstrap: [ AppComponent ]
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
-
 ```
+
 ```typescript
 searchHeroes(term: string): Observable {  // 利用subscribe订阅成功数据
   term = term.trim();
@@ -143,8 +150,11 @@ searchHeroes(term: string): Observable {  // 利用subscribe订阅成功数据
 };
 
 ```
-## post请求
+
+## post 请求
+
 ### 添加数据
+
 ```typescript
 addHero (hero: Hero): Observable<Hero> {
   return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe(
@@ -155,13 +165,15 @@ addHero (hero: Hero): Observable<Hero> {
 ```
 
 ### 调动触发
+
 ```typescript
-this.heroesService.addHero(newHero)
-  .subscribe(hero => this.heroes.push(hero));
+this.heroesService.addHero(newHero).subscribe((hero) => this.heroes.push(hero));
 ```
-## put请求
+
+## put 请求
 
 ### 更新数据
+
 ```typescript
 updateHero (hero: Hero): Observable<Hero> {
   return this.http.put<Hero>(this.heroesUrl, hero, httpOptions).pipe(
@@ -169,13 +181,17 @@ updateHero (hero: Hero): Observable<Hero> {
     );
 }
 ```
+
 ### 调用更新
+
 ```typescript
 this.heroesService.updateHero(hero);
 ```
-## delete请求
+
+## delete 请求
 
 ### 删除数据
+
 ```typescript
 deleteHero (id: number): Observable<{}> {
   const url = `${this.heroesUrl}/${id}`; // DELETE api/heroes/42
@@ -184,30 +200,42 @@ deleteHero (id: number): Observable<{}> {
     );
 }
 ```
+
 ### 方法调用触发请求
+
 ```typescript
 this.heroesService.deleteHero(hero.id).subscribe();
 ```
+
 # 拦截器配置
-## headers配置
+
+## headers 配置
+
 ### 初始化
+
 ```typescript
-import { HttpHeaders } from '@angular/common/http';
+import { HttpHeaders } from "@angular/common/http";
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'Authorization': 'my-auth-token'
-  })
+    "Content-Type": "application/json",
+    Authorization: "my-auth-token",
+  }),
 };
 ```
-### 更新header
+
+### 更新 header
+
 ```typescript
-httpOptions.headers =
-  httpOptions.headers.set('Authorization', 'my-new-auth-token');
+httpOptions.headers = httpOptions.headers.set(
+  "Authorization",
+  "my-new-auth-token"
+);
 ```
+
 ## 错误处理
 
-### pipe提前处理
+### pipe 提前处理
+
 ```typescript
 getConfig() {
   return this.http.get<Config>(this.configUrl).pipe(
@@ -215,6 +243,7 @@ getConfig() {
     );
 }
 ```
+
 ```typescript
 getConfig() {
   return this.http.get<Config>(this.configUrl).pipe(
@@ -223,7 +252,9 @@ getConfig() {
     );
 }
 ```
-### subscribe处理
+
+### subscribe 处理
+
 ```typescript
 showConfig() {
   this.configService.getConfig().subscribe(
