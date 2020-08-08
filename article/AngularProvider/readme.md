@@ -1,18 +1,10 @@
-### Angular 2 Provider
+## Angular Provider
 
 依赖注入(DI) 是 Angular 2 的核心，在深入了解 DI 的工作原理之前，我们必须先搞清楚 Provider 的概念。
 ![](https://upload-images.jianshu.io/upload_images/12890819-eddcdfc489bfc993.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 在 Angular 2 中我们使用 Provider 来描述与 Token 关联的依赖对象的创建方式。Angular 2 中依赖对象的创建方式有四种，它们分别是：
 
-useClass
-
-useValue
-
-useExisting
-
-useFactory
-
-## useClass
+### useClass
 
 ```typescript
 @Injectable()
@@ -33,19 +25,19 @@ export class ApiService {
 export class CoreModule { }
 ```
 
-## useValue
+### useValue
 
 ```typescript
 { provide: 'API_URL', useValue: 'http://my.api.com/v1' }
 ```
 
-## useExisting
+### useExisting
 
 ```typescript
 { provide: 'ApiServiceAlias', useExisting: ApiService }
 ```
 
-## useFactory
+### useFactory
 
 ```typescript
 export function configFactory(config: AppConfig) {
@@ -62,17 +54,17 @@ export function configFactory(config: AppConfig) {
 export class CoreModule { }
 ```
 
-### 使用 Provider 的正确姿势
+## 使用 Provider 的正确姿势
 
-## 1.创建 Token
+### 1.创建 Token
 
 Token 的作用是用来标识依赖对象，Token 值可能是 Type、InjectionToken、OpaqueToken 类的实例或字符串。通常不推荐使用字符串，因为如果使用字符串存在命名冲突的可能性比较高。在 Angular 4.x 以前的版本我们一般使用 OpaqueToken 来创建 Token，而在 Angular 4.x 以上的版本版本，推荐使用 InjectionToken 来创建 Token 。详细的内容可以参考， [如何解决 Angular 2 中 Provider 命名冲突。](https://segmentfault.com/a/1190000008626348)
 
-## 2.根据实际需求选择依赖对象的创建方式，如 useClass 、useValue、useExisting、useFactory
+### 2.根据实际需求选择依赖对象的创建方式，如 useClass 、useValue、useExisting、useFactory
 
-## 3.在 NgModule 或 Component 中注册 providers
+### 3.在 NgModule 或 Component 中注册 providers
 
-## 4.使用构造注入的方式，注入与 Token 关联的依赖对象
+### 4.使用构造注入的方式，注入与 Token 关联的依赖对象
 
 ```typescript
 /**
@@ -122,7 +114,7 @@ export class HomePage {
 }
 ```
 
-### 我有话说
+## 我有话说
 
 1.当 DI 解析 Providers 时，都会对提供的每个 provider 进行规范化处理，即转换成标准的形式。
 
@@ -185,7 +177,7 @@ export interface FactoryProvider {
 }
 ```
 
-### 总结
+## 总结
 
 在文章的最后，想举一个现实生活中的例子，帮助初学者更好地理解 Angular 2 DI 和 Provider。
 
